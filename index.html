@@ -1,0 +1,249 @@
+<style>
+.fl { display: flex; flex-direction: column; gap: var(--cds-gap-xl); max-width: 1180px; margin-inline: auto; font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+.fl, .fl * { box-sizing: border-box; }
+.fl-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.fl-badge { align-self: flex-start; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 2px 10px; background: var(--color-panel); }
+.fl h1 { margin: 0; font: 400 clamp(1.6rem, 4.5vw, 2.25rem) / 1.15 var(--font-anthropic-serif); text-wrap: balance; }
+.fl-take { margin: 0; font-size: var(--cds-font-size-heading); line-height: 1.55; max-width: 72ch; min-height: 3.1em; }
+.fl-n { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+.fl-def { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); max-width: 80ch; line-height: 1.5; }
+
+.fl-ctl { display: flex; flex-wrap: wrap; align-items: end; gap: var(--cds-gap-md); }
+.fl-field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fl-field > span { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fl select, .fl-btn { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 7px 12px; cursor: pointer; max-width: 100%; }
+.fl select:focus-visible, .fl-btn:focus-visible, .fl input[type=range]:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.fl-seg { display: inline-flex; }
+.fl-seg .fl-btn { border-radius: 0; }
+.fl-seg .fl-btn:first-child { border-radius: var(--cds-radius) 0 0 var(--cds-radius); }
+.fl-seg .fl-btn:last-child { border-radius: 0 var(--cds-radius) var(--cds-radius) 0; margin-left: -1px; }
+.fl-btn[aria-pressed=true] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+.fl-btn[hidden] { display: none; }
+
+.fl-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--cds-gap-md); }
+.fl-kpi { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: 4px; min-height: 7.5rem; min-width: 0; }
+.fl-kpi .l { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fl-kpi .v { font: 400 2.25rem / 1.1 var(--font-anthropic-serif); font-variant-numeric: tabular-nums; min-height: 2.5rem; }
+.fl-kpi .n { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+
+.fl h2 { margin: 0 0 var(--cds-gap-md); font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.fl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr)); gap: var(--cds-gap-md); }
+.fl-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.fl-card[hidden] { display: none; }
+.fl-card h3 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.fl-card .note { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.45; }
+
+.fl-maphead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: var(--cds-gap-md); }
+.fl-time { display: flex; flex-wrap: wrap; align-items: center; gap: var(--cds-gap-sm) var(--cds-gap-md); min-width: 0; flex: 1 1 22rem; justify-content: flex-end; }
+.fl-time input[type=range] { flex: 1 1 8rem; min-width: 6rem; max-width: 22rem; accent-color: var(--color-fg); }
+.fl-clock { font-variant-numeric: tabular-nums; font-size: var(--cds-font-size-heading); min-width: 6.5rem; }
+.fl-air { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; min-width: 8rem; }
+.fl-map { position: relative; width: 100%; min-height: 220px; overflow: hidden; border-radius: var(--cds-radius); }
+.fl-map svg { display: block; }
+.fl-map canvas { position: absolute; left: 0; top: 0; pointer-events: none; }
+.fl-land { fill: var(--cds-chart-grid); stroke: var(--cds-chart-axis); stroke-opacity: .35; }
+.fl-arc { fill: none; stroke-linecap: round; }
+.fl-ap { cursor: pointer; }
+.fl-ap:focus-visible { outline: none; }
+.fl-maplbl { fill: var(--color-fg); paint-order: stroke; stroke: var(--color-panel); stroke-linejoin: round; pointer-events: none; font-variant-numeric: tabular-nums; }
+.fl-legend { display: flex; flex-wrap: wrap; gap: 6px var(--cds-gap-lg); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); align-items: center; }
+.fl-legend .it { display: inline-flex; align-items: center; gap: 6px; }
+.fl-legend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.fl-legend .ramp { width: 90px; height: 8px; border-radius: 4px; display: inline-block; }
+
+.fl-pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--cds-gap-lg); }
+.fl-pkpi { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--cds-gap-sm) var(--cds-gap-md); align-content: start; }
+.fl-pkpi div { display: flex; flex-direction: column; gap: 2px; }
+.fl-pkpi .l { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fl-pkpi .v { font: 400 1.6rem / 1.2 var(--font-anthropic-serif); font-variant-numeric: tabular-nums; }
+.fl-phead { display: flex; justify-content: space-between; align-items: start; gap: var(--cds-gap-md); flex-wrap: wrap; }
+.fl-sub { margin: 0 0 6px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+
+.fl-ch { position: relative; width: 100%; }
+.fl-ch svg { display: block; overflow: visible; }
+.fl-empty { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding: 8px 0; }
+.fl-lbl { font-size: var(--cds-font-size-caption); fill: var(--color-fg); }
+.fl-val, .fl-tick { font-size: var(--cds-font-size-caption); fill: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.fl-grid-line { stroke: var(--cds-chart-grid); stroke-width: 1; }
+.fl-axis { stroke: var(--cds-chart-axis); stroke-width: 1; }
+.fl-ref { stroke: var(--cds-chart-reference); stroke-width: 1; }
+.fl-bar.sel { stroke: var(--color-fg); stroke-width: 1.5; }
+.fl-hov .fl-bar { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.fl-hov .fl-bar.on { opacity: 1; }
+.fl-tip { position: absolute; z-index: 5; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); line-height: 1.45; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.fl-tip[hidden] { display: none; }
+.fl-tip-t { color: var(--cds-text-secondary); }
+.fl-fail { display: flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: inherit; height: 100%; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fl-fail::before { content: ''; width: 0.375rem; height: 0.375rem; border-radius: 50%; background: var(--color-bad); }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+
+.fl-tablewrap { max-height: 26rem; overflow: auto; border-top: 1px solid var(--color-border-line); }
+.fl table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.fl th { position: sticky; top: 0; background: var(--color-panel); text-align: right; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 0; border-bottom: 1px solid var(--color-border-line); }
+.fl th:first-child, .fl td:first-child { text-align: left; }
+.fl th button { all: unset; cursor: pointer; display: block; width: 100%; padding: 8px 10px; box-sizing: border-box; }
+.fl th button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: -2px; }
+.fl th[aria-sort=ascending] button::after { content: ' ↑'; }
+.fl th[aria-sort=descending] button::after { content: ' ↓'; }
+.fl td { text-align: right; padding: 7px 10px; border-bottom: 1px solid var(--color-border-line); }
+.fl tbody tr { cursor: pointer; }
+.fl tbody tr:hover td { background: var(--cds-chart-grid); }
+.fl tbody tr.sel td { font-weight: var(--cds-font-weight-medium); box-shadow: inset 0 -2px 0 var(--color-fg); }
+.fl tr:last-child td { border-bottom: 0; }
+</style>
+
+<div class="fl">
+  <header class="fl-head" id="entete">
+    <div class="fl-badge">Données fictives, jeu de démonstration</div>
+    <h1>Trafic aérien du <span id="t-day">—</span></h1>
+    <p class="fl-take" id="take"></p>
+    <p class="fl-def">Un vol est en retard quand il arrive 15 minutes ou plus après l’heure prévue. Les vols annulés comptent dans les volumes, pas dans les retards. Heures en UTC. Les aéroports sont réels, les compagnies et tous les chiffres sont inventés.</p>
+  </header>
+
+  <section class="fl-ctl" aria-label="Filtres" id="filtres">
+    <label class="fl-field"><span>Compagnie</span><select id="f-airline"><option value="all">Toutes les compagnies</option></select></label>
+    <div class="fl-field"><span>Couleur des aéroports</span>
+      <div class="fl-seg" role="group" aria-label="Couleur des aéroports">
+        <button type="button" class="fl-btn" id="m-volume" aria-pressed="true">Volume</button>
+        <button type="button" class="fl-btn" id="m-late" aria-pressed="false">Retards au départ</button>
+      </div>
+    </div>
+    <button type="button" class="fl-btn" id="f-clear" hidden>Tout réinitialiser</button>
+  </section>
+
+  <section class="fl-kpis" aria-label="Chiffres clés" id="chiffres">
+    <div class="fl-kpi"><span class="l">Vols programmés</span><span class="v" id="k-flights">—</span><span class="n"><span id="k-operated">—</span> opérés</span></div>
+    <div class="fl-kpi"><span class="l">Aéroports</span><span class="v" id="k-airports">—</span><span class="n"><span id="k-routes">—</span> lignes différentes</span></div>
+    <div class="fl-kpi"><span class="l">Arrivées en retard</span><span class="v" id="k-late">—</span><span class="n">retard moyen <span id="k-avg">—</span> min</span></div>
+    <div class="fl-kpi"><span class="l">Annulations</span><span class="v" id="k-cancelled">—</span><span class="n"><span id="k-diverted">—</span> déroutés</span></div>
+    <div class="fl-kpi"><span class="l">Retard cumulé à l’arrivée</span><span class="v" id="k-hours">—</span><span class="n">heures, tous vols confondus</span></div>
+  </section>
+
+  <section class="fl-card" id="carte">
+    <div class="fl-maphead">
+      <div>
+        <h2 style="margin:0 0 4px">Carte du trafic</h2>
+        <p class="note">Cliquer sur un aéroport pour le détailler. Les points sont les vols en l’air à l’heure choisie.</p>
+      </div>
+      <div class="fl-time" id="temps">
+        <button type="button" class="fl-btn" id="t-play" aria-pressed="false">Lecture</button>
+        <input type="range" id="t-range" min="0" max="1439" step="1" value="600" aria-label="Heure de la journée, en UTC">
+        <span class="fl-clock" id="t-clock">00:00 UTC</span>
+        <span class="fl-air"><span id="t-air">—</span> vols en l’air</span>
+        <label class="fl-field" style="flex-direction:row;align-items:center;gap:6px"><span>Vitesse</span>
+          <select id="t-speed" aria-label="Vitesse de lecture">
+            <option value="12">Lente</option>
+            <option value="30" selected>Normale</option>
+            <option value="80">Rapide</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="fl-map" id="c-map" data-source="airports_by_airline routes_by_airline flights airports" style="min-height: 240px"></div>
+    <div class="fl-legend" id="map-legend"></div>
+  </section>
+
+  <section class="fl-card" id="airport-panel" hidden>
+    <div class="fl-phead">
+      <div>
+        <h2 style="margin:0" id="p-title">—</h2>
+        <p class="note" id="p-sub">Détail de l’aéroport sélectionné, pour la compagnie choisie ci-dessus.</p>
+      </div>
+      <button type="button" class="fl-btn" id="p-clear">Retirer la sélection</button>
+    </div>
+    <p class="fl-empty" id="p-empty" hidden>Cette compagnie ne dessert pas cet aéroport.</p>
+    <div class="fl-pgrid" id="p-body">
+      <div>
+        <p class="fl-sub">Activité du jour</p>
+        <div class="fl-pkpi">
+          <div><span class="l">Mouvements</span><span class="v" id="p-mov">—</span></div>
+          <div><span class="l">Départs</span><span class="v" id="p-dep">—</span></div>
+          <div><span class="l">Arrivées</span><span class="v" id="p-arr">—</span></div>
+          <div><span class="l">Départs en retard</span><span class="v" id="p-late">—</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="fl-sub">Principales destinations, vols du jour</p>
+        <div class="fl-ch" id="p-dest" data-source="routes_by_airline" style="min-height: 172px"></div>
+      </div>
+      <div>
+        <p class="fl-sub">Compagnies présentes, mouvements du jour</p>
+        <div class="fl-ch" id="p-air" data-source="airports_by_airline" style="min-height: 172px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="volumes">
+    <h2>Volumes : aéroports, compagnies, lignes</h2>
+    <div class="fl-grid">
+      <div class="fl-card">
+        <h3>Aéroports les plus actifs</h3>
+        <p class="note">Mouvements du jour : départs plus arrivées. Cliquer sur une barre pour l’ouvrir sur la carte.</p>
+        <div class="fl-ch" id="c-airports" data-source="airports_by_airline" style="min-height: 284px"></div>
+      </div>
+      <div class="fl-card">
+        <h3>Compagnies avec le plus de vols</h3>
+        <p class="note">Toutes les compagnies, dix premières. Cliquer sur une barre pour filtrer la page.</p>
+        <div class="fl-ch" id="c-airlines" data-source="airlines_ranked" style="min-height: 284px"></div>
+      </div>
+      <div class="fl-card">
+        <h3>Lignes les plus empruntées</h3>
+        <p class="note">Vols par ligne, les deux sens réunis. Survoler une barre montre la ligne sur la carte.</p>
+        <div class="fl-ch" id="c-routes" data-source="routes_by_airline" style="min-height: 284px"></div>
+      </div>
+      <div class="fl-card">
+        <h3>Départs par heure</h3>
+        <p class="note">Départs programmés par heure UTC.</p>
+        <div class="fl-ch" id="c-hours" data-source="hours_by_airline" style="min-height: 200px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="retards">
+    <h2>Retards : où, quand, qui</h2>
+    <div class="fl-grid">
+      <div class="fl-card">
+        <h3>Retard à l’arrivée</h3>
+        <p class="note">Vols opérés par tranche de retard.</p>
+        <div class="fl-ch" id="c-buckets" data-source="buckets_by_airline" style="min-height: 172px"></div>
+      </div>
+      <div class="fl-card">
+        <h3>Départs en retard au fil de la journée</h3>
+        <p class="note">Part des départs partis 15 minutes ou plus après l’heure prévue, par heure UTC.</p>
+        <div class="fl-ch" id="c-latehours" data-source="hours_by_airline" style="min-height: 200px"></div>
+      </div>
+      <div class="fl-card">
+        <h3>Aéroports avec le plus de départs en retard</h3>
+        <p class="note" id="n-lateairports">Aéroports avec un minimum de départs opérés.</p>
+        <div class="fl-ch" id="c-lateairports" data-source="airports_by_airline" style="min-height: 228px"></div>
+      </div>
+      <div class="fl-card">
+        <h3>Lignes avec le plus d’arrivées en retard</h3>
+        <p class="note" id="n-laterroutes">Lignes avec un minimum de vols opérés.</p>
+        <div class="fl-ch" id="c-laterroutes" data-source="routes_by_airline" style="min-height: 228px"></div>
+      </div>
+    </div>
+    <div class="fl-card" style="margin-top: var(--cds-gap-md)">
+      <h3>Ponctualité par compagnie</h3>
+      <p class="note">Cliquer sur un titre de colonne pour trier, sur une ligne pour filtrer la page.</p>
+      <div class="fl-tablewrap" id="c-table-wrap">
+        <table id="c-table" data-source="airlines_ranked" data-row-key="code">
+          <thead>
+            <tr>
+              <th data-field="name" aria-sort="none"><button type="button" data-k="name">Compagnie</button></th>
+              <th data-field="flights" aria-sort="none"><button type="button" data-k="flights">Vols</button></th>
+              <th data-field="cancelled" aria-sort="none"><button type="button" data-k="cancelled">Annulés</button></th>
+              <th data-field="pct_late" aria-sort="descending"><button type="button" data-k="pct_late">En retard</button></th>
+              <th data-field="avg_arr_delay" aria-sort="none"><button type="button" data-k="avg_arr_delay">Retard moyen (min)</button></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="mapdata.js"></script>
+<script src="calcs.js"></script>
+<script src="app.js"></script>

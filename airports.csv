@@ -1,0 +1,56 @@
+iata,city,country,region,lat,lon,utc_offset,traffic_weight
+CDG,Paris,France,FR,49.01,2.55,2.0,10.0
+ORY,Paris,France,FR,48.72,2.38,2.0,5.0
+NCE,Nice,France,FR,43.66,7.21,2.0,4.0
+MRS,Marseille,France,FR,43.44,5.22,2.0,3.0
+LYS,Lyon,France,FR,45.73,5.09,2.0,3.0
+TLS,Toulouse,France,FR,43.63,1.37,2.0,2.5
+BOD,Bordeaux,France,FR,44.83,-0.72,2.0,2.0
+LHR,Londres,Royaume-Uni,UKI,51.47,-0.45,1.0,10.0
+LGW,Londres,Royaume-Uni,UKI,51.15,-0.18,1.0,5.0
+MAN,Manchester,Royaume-Uni,UKI,53.35,-2.27,1.0,3.5
+DUB,Dublin,Irlande,UKI,53.43,-6.27,1.0,4.5
+AMS,Amsterdam,Pays-Bas,EU,52.31,4.76,2.0,9.0
+BRU,Bruxelles,Belgique,EU,50.9,4.48,2.0,3.5
+FRA,Francfort,Allemagne,EU,50.03,8.57,2.0,9.0
+MUC,Munich,Allemagne,EU,48.35,11.79,2.0,7.0
+ZRH,Zurich,Suisse,EU,47.46,8.55,2.0,4.5
+VIE,Vienne,Autriche,EU,48.11,16.57,2.0,4.0
+CPH,Copenhague,Danemark,EU,55.62,12.66,2.0,4.0
+ARN,Stockholm,Suède,EU,59.65,17.92,2.0,3.5
+OSL,Oslo,Norvège,EU,60.19,11.1,2.0,3.0
+HEL,Helsinki,Finlande,EU,60.32,24.96,3.0,2.5
+MAD,Madrid,Espagne,EU,40.49,-3.57,2.0,8.0
+BCN,Barcelone,Espagne,EU,41.3,2.08,2.0,7.5
+LIS,Lisbonne,Portugal,EU,38.77,-9.13,1.0,4.5
+FCO,Rome,Italie,EU,41.8,12.25,2.0,6.0
+MXP,Milan,Italie,EU,45.63,8.72,2.0,4.5
+ATH,Athènes,Grèce,EU,37.94,23.94,3.0,3.5
+WAW,Varsovie,Pologne,EU,52.17,20.97,2.0,3.0
+PRG,Prague,Tchéquie,EU,50.1,14.26,2.0,3.0
+IST,Istanbul,Turquie,EU,41.26,28.74,3.0,8.0
+DXB,Dubaï,Émirats arabes unis,ME,25.25,55.36,4.0,8.0
+DOH,Doha,Qatar,ME,25.27,51.61,3.0,5.0
+AUH,Abou Dabi,Émirats arabes unis,ME,24.43,54.65,4.0,3.0
+CMN,Casablanca,Maroc,AF,33.37,-7.59,1.0,3.0
+JNB,Johannesburg,Afrique du Sud,AF,-26.14,28.25,2.0,3.0
+ATL,Atlanta,États-Unis,NA,33.64,-84.43,-4.0,9.0
+JFK,New York,États-Unis,NA,40.64,-73.78,-4.0,7.0
+EWR,New York,États-Unis,NA,40.69,-74.17,-4.0,4.0
+ORD,Chicago,États-Unis,NA,41.98,-87.9,-5.0,8.0
+DFW,Dallas,États-Unis,NA,32.9,-97.04,-5.0,6.0
+MIA,Miami,États-Unis,NA,25.79,-80.29,-4.0,4.0
+LAX,Los Angeles,États-Unis,NA,33.94,-118.41,-7.0,7.0
+SFO,San Francisco,États-Unis,NA,37.62,-122.38,-7.0,5.0
+YYZ,Toronto,Canada,NA,43.68,-79.63,-4.0,4.0
+MEX,Mexico,Mexique,NA,19.44,-99.07,-6.0,3.5
+GRU,São Paulo,Brésil,SA,-23.43,-46.47,-3.0,4.0
+SIN,Singapour,Singapour,AS,1.36,103.99,8.0,5.0
+HND,Tokyo,Japon,AS,35.55,139.78,9.0,5.0
+ICN,Séoul,Corée du Sud,AS,37.46,126.44,9.0,4.5
+HKG,Hong Kong,Chine,AS,22.31,113.92,8.0,4.0
+BKK,Bangkok,Thaïlande,AS,13.69,100.75,7.0,4.0
+DEL,Delhi,Inde,AS,28.56,77.1,5.5,4.0
+PEK,Pékin,Chine,AS,40.08,116.58,8.0,4.5
+PVG,Shanghai,Chine,AS,31.14,121.81,8.0,4.0
+SYD,Sydney,Australie,OC,-33.94,151.18,11.0,3.5

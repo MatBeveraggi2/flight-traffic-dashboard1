@@ -1,0 +1,719 @@
+{
+  "meta": {
+    "day_utc": "2026-10-13",
+    "source": "demo-synthetic",
+    "is_demo": true,
+    "delay_threshold_min": 15
+  },
+  "kpis": {
+    "flights": 11830,
+    "operated": 11691,
+    "cancelled": 139,
+    "diverted": 29,
+    "airports": 55,
+    "airlines": 22,
+    "routes": 1118,
+    "pct_arr_delayed": 25.6,
+    "avg_arr_delay_of_delayed": 38.0,
+    "median_arr_delay": 2.0,
+    "total_delay_hours": 2255.0
+  },
+  "top_airports": [
+    {
+      "iata": "AMS",
+      "city": "Amsterdam",
+      "departures": 526,
+      "arrivals": 526,
+      "movements": 1052
+    },
+    {
+      "iata": "IST",
+      "city": "Istanbul",
+      "departures": 511,
+      "arrivals": 511,
+      "movements": 1022
+    },
+    {
+      "iata": "FRA",
+      "city": "Francfort",
+      "departures": 506,
+      "arrivals": 506,
+      "movements": 1012
+    },
+    {
+      "iata": "LHR",
+      "city": "Londres",
+      "departures": 482,
+      "arrivals": 482,
+      "movements": 964
+    },
+    {
+      "iata": "CDG",
+      "city": "Paris",
+      "departures": 477,
+      "arrivals": 477,
+      "movements": 954
+    },
+    {
+      "iata": "BCN",
+      "city": "Barcelone",
+      "departures": 436,
+      "arrivals": 436,
+      "movements": 872
+    },
+    {
+      "iata": "FCO",
+      "city": "Rome",
+      "departures": 423,
+      "arrivals": 423,
+      "movements": 846
+    },
+    {
+      "iata": "MUC",
+      "city": "Munich",
+      "departures": 412,
+      "arrivals": 412,
+      "movements": 824
+    },
+    {
+      "iata": "MAD",
+      "city": "Madrid",
+      "departures": 404,
+      "arrivals": 404,
+      "movements": 808
+    },
+    {
+      "iata": "DXB",
+      "city": "Dubaï",
+      "departures": 398,
+      "arrivals": 398,
+      "movements": 796
+    },
+    {
+      "iata": "ATL",
+      "city": "Atlanta",
+      "departures": 375,
+      "arrivals": 375,
+      "movements": 750
+    },
+    {
+      "iata": "ORD",
+      "city": "Chicago",
+      "departures": 314,
+      "arrivals": 314,
+      "movements": 628
+    },
+    {
+      "iata": "LGW",
+      "city": "Londres",
+      "departures": 300,
+      "arrivals": 300,
+      "movements": 600
+    },
+    {
+      "iata": "DFW",
+      "city": "Dallas",
+      "departures": 288,
+      "arrivals": 288,
+      "movements": 576
+    },
+    {
+      "iata": "DUB",
+      "city": "Dublin",
+      "departures": 274,
+      "arrivals": 274,
+      "movements": 548
+    }
+  ],
+  "top_airlines": [
+    {
+      "code": "NVA",
+      "name": "Nordvia",
+      "flights": 980,
+      "cancelled": 8,
+      "pct_delayed": 26.2,
+      "avg_arr_delay": 8.3
+    },
+    {
+      "code": "GLF",
+      "name": "Gaelflight",
+      "flights": 840,
+      "cancelled": 8,
+      "pct_delayed": 27.4,
+      "avg_arr_delay": 9.3
+    },
+    {
+      "code": "RHN",
+      "name": "Rhenair",
+      "flights": 840,
+      "cancelled": 10,
+      "pct_delayed": 29.6,
+      "avg_arr_delay": 10.1
+    },
+    {
+      "code": "ALB",
+      "name": "Albion Airways",
+      "flights": 770,
+      "cancelled": 8,
+      "pct_delayed": 29.1,
+      "avg_arr_delay": 9.3
+    },
+    {
+      "code": "APL",
+      "name": "Appalach Air",
+      "flights": 770,
+      "cancelled": 8,
+      "pct_delayed": 29.0,
+      "avg_arr_delay": 9.5
+    },
+    {
+      "code": "CRD",
+      "name": "Cardinal Air",
+      "flights": 770,
+      "cancelled": 15,
+      "pct_delayed": 32.1,
+      "avg_arr_delay": 11.7
+    },
+    {
+      "code": "BSP",
+      "name": "Bosphor Air",
+      "flights": 630,
+      "cancelled": 5,
+      "pct_delayed": 25.9,
+      "avg_arr_delay": 8.6
+    },
+    {
+      "code": "ZPJ",
+      "name": "Zephyr Jet",
+      "flights": 630,
+      "cancelled": 1,
+      "pct_delayed": 21.1,
+      "avg_arr_delay": 5.7
+    },
+    {
+      "code": "GFA",
+      "name": "Golfe Airways",
+      "flights": 560,
+      "cancelled": 6,
+      "pct_delayed": 21.5,
+      "avg_arr_delay": 6.6
+    },
+    {
+      "code": "IBW",
+      "name": "Iberwing",
+      "flights": 560,
+      "cancelled": 8,
+      "pct_delayed": 21.2,
+      "avg_arr_delay": 7.1
+    },
+    {
+      "code": "PLD",
+      "name": "Polderjet",
+      "flights": 560,
+      "cancelled": 9,
+      "pct_delayed": 27.6,
+      "avg_arr_delay": 9.6
+    },
+    {
+      "code": "ADR",
+      "name": "Adriatica",
+      "flights": 490,
+      "cancelled": 5,
+      "pct_delayed": 28.5,
+      "avg_arr_delay": 9.1
+    },
+    {
+      "code": "DRG",
+      "name": "Dragonline",
+      "flights": 490,
+      "cancelled": 8,
+      "pct_delayed": 18.0,
+      "avg_arr_delay": 4.3
+    },
+    {
+      "code": "PCR",
+      "name": "Pacific Crest",
+      "flights": 490,
+      "cancelled": 4,
+      "pct_delayed": 28.4,
+      "avg_arr_delay": 9.1
+    },
+    {
+      "code": "LCA",
+      "name": "Lion City Air",
+      "flights": 420,
+      "cancelled": 5,
+      "pct_delayed": 14.0,
+      "avg_arr_delay": 3.6
+    },
+    {
+      "code": "ALF",
+      "name": "Alpenfly",
+      "flights": 350,
+      "cancelled": 4,
+      "pct_delayed": 28.6,
+      "avg_arr_delay": 9.1
+    },
+    {
+      "code": "BRL",
+      "name": "Boreal",
+      "flights": 350,
+      "cancelled": 5,
+      "pct_delayed": 25.8,
+      "avg_arr_delay": 7.7
+    },
+    {
+      "code": "PRL",
+      "name": "Perle Air",
+      "flights": 350,
+      "cancelled": 8,
+      "pct_delayed": 26.0,
+      "avg_arr_delay": 7.5
+    },
+    {
+      "code": "SKW",
+      "name": "Sakura Wings",
+      "flights": 350,
+      "cancelled": 4,
+      "pct_delayed": 18.5,
+      "avg_arr_delay": 5.8
+    },
+    {
+      "code": "CSR",
+      "name": "Cruzeiro Sul",
+      "flights": 210,
+      "cancelled": 4,
+      "pct_delayed": 30.1,
+      "avg_arr_delay": 11.0
+    },
+    {
+      "code": "IND",
+      "name": "Indus Air",
+      "flights": 210,
+      "cancelled": 2,
+      "pct_delayed": 18.8,
+      "avg_arr_delay": 6.1
+    },
+    {
+      "code": "SVN",
+      "name": "Savane Air",
+      "flights": 210,
+      "cancelled": 4,
+      "pct_delayed": 18.4,
+      "avg_arr_delay": 5.1
+    }
+  ],
+  "top_routes": [
+    {
+      "route": "ATL ↔ ORD",
+      "flights": 90,
+      "distance_km": 976,
+      "airlines": 3,
+      "pct_delayed": 42.2
+    },
+    {
+      "route": "ATL ↔ DFW",
+      "flights": 70,
+      "distance_km": 1174,
+      "airlines": 2,
+      "pct_delayed": 22.9
+    },
+    {
+      "route": "CDG ↔ LHR",
+      "flights": 68,
+      "distance_km": 347,
+      "airlines": 2,
+      "pct_delayed": 31.3
+    },
+    {
+      "route": "AMS ↔ LHR",
+      "flights": 66,
+      "distance_km": 369,
+      "airlines": 2,
+      "pct_delayed": 31.2
+    },
+    {
+      "route": "CDG ↔ FRA",
+      "flights": 62,
+      "distance_km": 449,
+      "airlines": 2,
+      "pct_delayed": 32.8
+    },
+    {
+      "route": "FRA ↔ IST",
+      "flights": 60,
+      "distance_km": 1838,
+      "airlines": 2,
+      "pct_delayed": 38.3
+    },
+    {
+      "route": "BCN ↔ FCO",
+      "flights": 56,
+      "distance_km": 848,
+      "airlines": 4,
+      "pct_delayed": 33.9
+    },
+    {
+      "route": "FRA ↔ MUC",
+      "flights": 56,
+      "distance_km": 299,
+      "airlines": 1,
+      "pct_delayed": 21.4
+    },
+    {
+      "route": "BCN ↔ CDG",
+      "flights": 54,
+      "distance_km": 858,
+      "airlines": 4,
+      "pct_delayed": 31.5
+    },
+    {
+      "route": "AMS ↔ FRA",
+      "flights": 52,
+      "distance_km": 367,
+      "airlines": 2,
+      "pct_delayed": 43.1
+    },
+    {
+      "route": "DFW ↔ ORD",
+      "flights": 52,
+      "distance_km": 1291,
+      "airlines": 3,
+      "pct_delayed": 36.0
+    },
+    {
+      "route": "DOH ↔ DXB",
+      "flights": 52,
+      "distance_km": 377,
+      "airlines": 2,
+      "pct_delayed": 23.5
+    },
+    {
+      "route": "AMS ↔ FCO",
+      "flights": 50,
+      "distance_km": 1297,
+      "airlines": 4,
+      "pct_delayed": 22.0
+    },
+    {
+      "route": "DUB ↔ LHR",
+      "flights": 50,
+      "distance_km": 450,
+      "airlines": 2,
+      "pct_delayed": 18.0
+    },
+    {
+      "route": "FRA ↔ LHR",
+      "flights": 50,
+      "distance_km": 654,
+      "airlines": 2,
+      "pct_delayed": 26.5
+    }
+  ],
+  "by_hour": [
+    {
+      "hour_utc": 0,
+      "departures": 224,
+      "pct_dep_delayed": 28.1,
+      "avg_dep_delay": 9.6
+    },
+    {
+      "hour_utc": 1,
+      "departures": 222,
+      "pct_dep_delayed": 27.1,
+      "avg_dep_delay": 9.3
+    },
+    {
+      "hour_utc": 2,
+      "departures": 212,
+      "pct_dep_delayed": 23.2,
+      "avg_dep_delay": 7.4
+    },
+    {
+      "hour_utc": 3,
+      "departures": 318,
+      "pct_dep_delayed": 21.5,
+      "avg_dep_delay": 7.0
+    },
+    {
+      "hour_utc": 4,
+      "departures": 560,
+      "pct_dep_delayed": 22.3,
+      "avg_dep_delay": 7.7
+    },
+    {
+      "hour_utc": 5,
+      "departures": 685,
+      "pct_dep_delayed": 23.1,
+      "avg_dep_delay": 7.5
+    },
+    {
+      "hour_utc": 6,
+      "departures": 647,
+      "pct_dep_delayed": 24.1,
+      "avg_dep_delay": 8.1
+    },
+    {
+      "hour_utc": 7,
+      "departures": 587,
+      "pct_dep_delayed": 23.6,
+      "avg_dep_delay": 7.4
+    },
+    {
+      "hour_utc": 8,
+      "departures": 495,
+      "pct_dep_delayed": 21.5,
+      "avg_dep_delay": 7.2
+    },
+    {
+      "hour_utc": 9,
+      "departures": 564,
+      "pct_dep_delayed": 24.1,
+      "avg_dep_delay": 8.6
+    },
+    {
+      "hour_utc": 10,
+      "departures": 590,
+      "pct_dep_delayed": 27.0,
+      "avg_dep_delay": 9.9
+    },
+    {
+      "hour_utc": 11,
+      "departures": 607,
+      "pct_dep_delayed": 22.7,
+      "avg_dep_delay": 7.8
+    },
+    {
+      "hour_utc": 12,
+      "departures": 646,
+      "pct_dep_delayed": 27.7,
+      "avg_dep_delay": 9.8
+    },
+    {
+      "hour_utc": 13,
+      "departures": 662,
+      "pct_dep_delayed": 27.9,
+      "avg_dep_delay": 9.0
+    },
+    {
+      "hour_utc": 14,
+      "departures": 681,
+      "pct_dep_delayed": 26.0,
+      "avg_dep_delay": 8.9
+    },
+    {
+      "hour_utc": 15,
+      "departures": 703,
+      "pct_dep_delayed": 29.8,
+      "avg_dep_delay": 10.1
+    },
+    {
+      "hour_utc": 16,
+      "departures": 711,
+      "pct_dep_delayed": 28.8,
+      "avg_dep_delay": 9.8
+    },
+    {
+      "hour_utc": 17,
+      "departures": 607,
+      "pct_dep_delayed": 31.3,
+      "avg_dep_delay": 10.5
+    },
+    {
+      "hour_utc": 18,
+      "departures": 583,
+      "pct_dep_delayed": 30.8,
+      "avg_dep_delay": 11.1
+    },
+    {
+      "hour_utc": 19,
+      "departures": 426,
+      "pct_dep_delayed": 28.6,
+      "avg_dep_delay": 12.0
+    },
+    {
+      "hour_utc": 20,
+      "departures": 353,
+      "pct_dep_delayed": 29.1,
+      "avg_dep_delay": 10.5
+    },
+    {
+      "hour_utc": 21,
+      "departures": 277,
+      "pct_dep_delayed": 29.7,
+      "avg_dep_delay": 11.8
+    },
+    {
+      "hour_utc": 22,
+      "departures": 237,
+      "pct_dep_delayed": 25.1,
+      "avg_dep_delay": 11.1
+    },
+    {
+      "hour_utc": 23,
+      "departures": 233,
+      "pct_dep_delayed": 28.4,
+      "avg_dep_delay": 9.8
+    }
+  ],
+  "arrival_delay_distribution": [
+    {
+      "bucket": "À l'heure ou en avance",
+      "flights": 5195
+    },
+    {
+      "bucket": "1 à 14 min",
+      "flights": 3498
+    },
+    {
+      "bucket": "15 à 29 min",
+      "flights": 1419
+    },
+    {
+      "bucket": "30 à 59 min",
+      "flights": 1170
+    },
+    {
+      "bucket": "1 h à 2 h",
+      "flights": 355
+    },
+    {
+      "bucket": "2 h et plus",
+      "flights": 54
+    }
+  ],
+  "worst_airports_by_departure_delay": [
+    {
+      "iata": "SFO",
+      "city": "San Francisco",
+      "departures": 166,
+      "pct_dep_delayed": 37.3,
+      "avg_dep_delay": 12.5
+    },
+    {
+      "iata": "ORD",
+      "city": "Chicago",
+      "departures": 305,
+      "pct_dep_delayed": 36.7,
+      "avg_dep_delay": 19.2
+    },
+    {
+      "iata": "JFK",
+      "city": "New York",
+      "departures": 182,
+      "pct_dep_delayed": 35.7,
+      "avg_dep_delay": 15.3
+    },
+    {
+      "iata": "LGW",
+      "city": "Londres",
+      "departures": 299,
+      "pct_dep_delayed": 34.8,
+      "avg_dep_delay": 12.3
+    },
+    {
+      "iata": "FRA",
+      "city": "Francfort",
+      "departures": 501,
+      "pct_dep_delayed": 33.9,
+      "avg_dep_delay": 12.9
+    },
+    {
+      "iata": "CDG",
+      "city": "Paris",
+      "departures": 477,
+      "pct_dep_delayed": 30.6,
+      "avg_dep_delay": 11.8
+    },
+    {
+      "iata": "AMS",
+      "city": "Amsterdam",
+      "departures": 516,
+      "pct_dep_delayed": 30.2,
+      "avg_dep_delay": 11.7
+    },
+    {
+      "iata": "LHR",
+      "city": "Londres",
+      "departures": 476,
+      "pct_dep_delayed": 29.6,
+      "avg_dep_delay": 9.7
+    },
+    {
+      "iata": "IST",
+      "city": "Istanbul",
+      "departures": 507,
+      "pct_dep_delayed": 28.0,
+      "avg_dep_delay": 9.8
+    },
+    {
+      "iata": "ATL",
+      "city": "Atlanta",
+      "departures": 372,
+      "pct_dep_delayed": 28.0,
+      "avg_dep_delay": 9.1
+    }
+  ],
+  "worst_routes_by_delay": [
+    {
+      "route": "EWR ↔ ORD",
+      "flights": 28,
+      "pct_delayed": 60.7,
+      "avg_arr_delay": 26.3
+    },
+    {
+      "route": "CDG ↔ ZRH",
+      "flights": 26,
+      "pct_delayed": 50.0,
+      "avg_arr_delay": 18.9
+    },
+    {
+      "route": "DFW ↔ SFO",
+      "flights": 30,
+      "pct_delayed": 46.7,
+      "avg_arr_delay": 10.6
+    },
+    {
+      "route": "DFW ↔ JFK",
+      "flights": 20,
+      "pct_delayed": 45.0,
+      "avg_arr_delay": 12.1
+    },
+    {
+      "route": "EWR ↔ JFK",
+      "flights": 20,
+      "pct_delayed": 45.0,
+      "avg_arr_delay": 20.6
+    },
+    {
+      "route": "FRA ↔ LAX",
+      "flights": 20,
+      "pct_delayed": 45.0,
+      "avg_arr_delay": 20.8
+    },
+    {
+      "route": "ORD ↔ SFO",
+      "flights": 20,
+      "pct_delayed": 45.0,
+      "avg_arr_delay": 17.2
+    },
+    {
+      "route": "CDG ↔ LGW",
+      "flights": 38,
+      "pct_delayed": 44.7,
+      "avg_arr_delay": 16.4
+    },
+    {
+      "route": "FRA ↔ LGW",
+      "flights": 36,
+      "pct_delayed": 44.4,
+      "avg_arr_delay": 13.6
+    },
+    {
+      "route": "AMS ↔ FRA",
+      "flights": 51,
+      "pct_delayed": 43.1,
+      "avg_arr_delay": 18.6
+    }
+  ]
+}
